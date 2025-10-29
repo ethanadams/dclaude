@@ -1,0 +1,30 @@
+# Gemini-specific
+.gemini/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+build/
+dist/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.test
+*.out
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
