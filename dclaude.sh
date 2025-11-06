@@ -126,18 +126,18 @@ case $COMMAND in
         fi
         echo ""
         warn "These files will be removed with 'git clean -fdx' to ensure a clean branch"
-        echo -n "Do you want to proceed with cleaning? [y/N] "
+        echo -n "Do you want to proceed with cleaning? [Y/n] "
         read -r response
         case "$response" in
-          [yY][eE][sS]|[yY])
+          [nN][oO]|[nN])
+            warn "Skipping clean. Branch will be created with untracked files present."
+            ;;
+          *)
             info "Running: git clean -fdx"
             if ! git -C "$DCLAUDE_REPO_PATH" clean -fdx; then
               error "Failed to clean untracked files from $SOURCE_BRANCH branch"
             fi
             success "Untracked files cleaned"
-            ;;
-          *)
-            warn "Skipping clean. Branch will be created with untracked files present."
             ;;
         esac
       fi
